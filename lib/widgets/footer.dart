@@ -32,9 +32,9 @@ class Footer extends StatelessWidget {
                 minimumSize: const Size.fromHeight(50)),
           ),
         ): SizedBox(),
-        SizedBox(width: hasPrevButton ? 30: 0,),
+        SizedBox(width: hasPrevButton ? 20: 0,),
         Expanded(child: Opacity(
-          opacity: isDisabled ? 0.1: 1,
+          opacity: isDisabled ? 0.15: 1,
           child: FilledButton(
             onPressed: isDisabled ? () => {}: callback,
             child: Text(

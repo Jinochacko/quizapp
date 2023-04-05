@@ -63,41 +63,53 @@ class _QuizHomePageState extends State<HomePage> {
         ],
         elevation: 0,
       ),
-      body: Consumer<QuizProvider>(builder: (context, quiz, child){
-        return Container(
-            alignment: Alignment.bottomCenter,
-            decoration: BoxDecoration(color: Colors.black),
-            padding: EdgeInsets.all(30),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Expanded(
-                  child: Column(children: [
-                    Progress(hasDot: false,),
-                    SizedBox(height: 50),
-                    Text(
-                      "Document Details",
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 24,
-                          fontWeight: FontWeight.w900),
+      body: Consumer<QuizProvider>(
+        builder: (context, quiz, child) {
+          return Container(
+              alignment: Alignment.bottomCenter,
+              decoration: BoxDecoration(color: Colors.black),
+              padding:
+                  EdgeInsets.only(left: 20, top: 20, right: 20, bottom: 42),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Expanded(
+                    child: Center(
+                      child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                        Progress(
+                          hasDot: false,
+                        ),
+                        SizedBox(height: 50),
+                        Text(
+                          "Document Details",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 24,
+                              fontWeight: FontWeight.w900),
+                        ),
+                        SizedBox(height: 20),
+                        Text(
+                          "Let’s complete the next few questions",
+                          style: TextStyle(
+                              color: Color.fromRGBO(230, 109, 193, 1),
+                              fontSize: 13),
+                        )
+                      ]),
                     ),
-                    SizedBox(height: 20),
-                    Text(
-                      "Let’s complete the next few questions",
-                      style: TextStyle(
-                          color: Color.fromRGBO(230, 109, 193, 1), fontSize: 13),
-                    )
-                  ]),
-                ),
-                Footer(
-                  buttonLabel: "Start",
-                  callback: () => Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => DocumentDetailsPage())),
-                )
-              ],
-            ));
-      },),
+                  ),
+                  Footer(
+                    buttonLabel: "Start",
+                    callback: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => DocumentDetailsPage())),
+                  )
+                ],
+              ));
+        },
+      ),
     );
   }
 }

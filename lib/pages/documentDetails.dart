@@ -35,7 +35,7 @@ class DocumentDetailsPage extends StatelessWidget {
       body: Container(
         alignment: Alignment.bottomCenter,
         decoration: BoxDecoration(color: Colors.black),
-        padding: EdgeInsets.all(30),
+        padding: EdgeInsets.only(left: 20, top: 20, right: 20, bottom: 42),
         child: DocumentStateful(),
       ),
     );
@@ -72,11 +72,10 @@ class _DocumentStatefulState extends State<DocumentStateful> {
                           builder: (BuildContext context) {
                             return SizedBox(
                               child: Padding(
-                                padding: EdgeInsets.all(30),
+                                padding: EdgeInsets.only(left: 20, top: 20, right: 20, bottom: 42),
                                 child: Center(
                                   child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    mainAxisSize: MainAxisSize.min,
+                                    mainAxisAlignment: MainAxisAlignment.end,
                                     children: <Widget>[
                                       FilledButton(
                                         child: const Text('Passport'),
@@ -94,7 +93,7 @@ class _DocumentStatefulState extends State<DocumentStateful> {
 
                                       ),
                                       SizedBox(
-                                        height: 20,
+                                        height: 16,
                                       ),
                                       FilledButton(
                                         child: const Text("National Card"),
@@ -111,7 +110,7 @@ class _DocumentStatefulState extends State<DocumentStateful> {
                                                 const Size.fromHeight(50)),
                                       ),
                                       SizedBox(
-                                        height: 20,
+                                        height: 16,
                                       ),
                                       FilledButton(
                                         child: Text(

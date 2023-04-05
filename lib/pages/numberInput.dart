@@ -31,7 +31,7 @@ class NumberInputPage extends StatelessWidget {
       body: Container(
         alignment: Alignment.bottomCenter,
         decoration: BoxDecoration(color: Colors.black),
-        padding: EdgeInsets.all(30),
+        padding: EdgeInsets.only(left: 20, top: 20, right: 20, bottom: 42),
         child: NumberInputStateful(),
       ),
     );
@@ -81,10 +81,12 @@ class _NumberInputStatefulState extends State<NumberInputStateful> {
         Column(
           children: [
             TextField(
+              maxLength: 20,
               onChanged: (value) => _setResult(value),
               controller: _numberInputController,
               keyboardType: TextInputType.number,
               decoration: InputDecoration(
+                  counterText: '',
                   hintText: "Number",
                   focusedBorder: OutlineInputBorder(
                       borderSide: BorderSide(
@@ -99,14 +101,15 @@ class _NumberInputStatefulState extends State<NumberInputStateful> {
                   suffixIcon: _result != ""
                       ? IconButton(
                           color: Color.fromRGBO(230, 109, 193, 1),
-                          icon: Icon(Icons.clear_rounded),
+                          icon: Icon(Icons.cancel,size: 24),
                           onPressed: () {
                             _numberInputController.clear();
                             setState(() {
                               _isDisabled = true;
+                              _result = "";
                             });
-                            Provider.of<QuizProvider>(context, listen: false)
-                                .setDocumentNumber('');
+                            // Provider.of<QuizProvider>(context, listen: false)
+                            //     .setDocumentNumber('');
                           },
                         )
                       : SizedBox(),

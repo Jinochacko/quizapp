@@ -31,7 +31,7 @@ class FinishPage extends StatelessWidget {
       body: Container(
         alignment: Alignment.bottomCenter,
         decoration: BoxDecoration(color: Colors.black),
-        padding: EdgeInsets.all(30),
+        padding: EdgeInsets.only(left: 20, top: 20, right: 20, bottom: 42),
         child: CountryDetailsStateful(),
       ),
     );
@@ -52,12 +52,14 @@ class _CountryDetailsStatefulState extends State<CountryDetailsStateful> {
     return Container(
         alignment: Alignment.bottomCenter,
         decoration: BoxDecoration(color: Colors.black),
-        padding: EdgeInsets.all(30),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Expanded(
-              child: Column(children: [
+        child: Center(
+        child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
                 Progress(hasDot: false,),
                 SizedBox(height: 50),
                 Text(
@@ -74,6 +76,7 @@ class _CountryDetailsStatefulState extends State<CountryDetailsStateful> {
                       color: Color.fromRGBO(230, 109, 193, 1), fontSize: 13),
                 )
               ]),
+            ),
             ),
             Footer(
               buttonLabel: "Re-start",

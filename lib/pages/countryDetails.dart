@@ -37,7 +37,7 @@ class CountryDetailsPage extends StatelessWidget {
       body: Container(
         alignment: Alignment.bottomCenter,
         decoration: BoxDecoration(color: Colors.black),
-        padding: EdgeInsets.all(30),
+        padding: EdgeInsets.only(left: 20, top: 20, right: 20, bottom: 42),
         child: CountryDetailsStateful(),
       ),
     );

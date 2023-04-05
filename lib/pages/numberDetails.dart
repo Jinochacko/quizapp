@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:quiz/pages/countryInput.dart';
 import 'package:quiz/pages/numberInput.dart';
 import 'package:quiz/widgets/footer.dart';
 import 'package:quiz/widgets/progressRow.dart';
@@ -37,7 +36,7 @@ class NumberDetailsPage extends StatelessWidget {
       body: Container(
         alignment: Alignment.bottomCenter,
         decoration: BoxDecoration(color: Colors.black),
-        padding: EdgeInsets.all(30),
+        padding: EdgeInsets.only(left: 20, top: 20, right: 20, bottom: 42),
         child: NumberStateful(),
       ),
     );

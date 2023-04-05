@@ -54,7 +54,7 @@ class _CountryInputStatefulState extends State<CountryInputStateful> {
         return Container(
             alignment: Alignment.bottomCenter,
             decoration: BoxDecoration(color: Color.fromRGBO(29, 29, 31, 0.95)),
-            padding: EdgeInsets.all(30),
+            padding: EdgeInsets.only(left: 20, top: 20, right: 20, bottom: 42),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -78,17 +78,19 @@ class _CountryInputStatefulState extends State<CountryInputStateful> {
                         ),
                       ),
                       SizedBox(
-                        height: 30,
+                        height: 26,
                       ),
                       TextField(
                         onChanged: (value) => {
                           _filter(value)
                         },
                         controller: _numberInputController,
+                        style: TextStyle(height: 1),
                         decoration: InputDecoration(
                             hintText: "Search",
                             hintStyle: TextStyle(
-                                color: Color.fromRGBO(174, 174, 178, 1)),
+                                color: Color.fromRGBO(174, 174, 178, 1),
+                            fontSize: 13),
                             focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                   width: 1.0,
@@ -99,8 +101,18 @@ class _CountryInputStatefulState extends State<CountryInputStateful> {
                                   width: 1.0,
                                   color: Color.fromRGBO(230, 109, 193, 1)),
                             ),
-                            prefixIcon: Icon(Icons.search,
+                            prefixIcon: Icon(Icons.search, size: 12,
                                 color: Color.fromRGBO(51, 51, 51, 1)),
+                            suffixIcon: _numberInputController.text != ""
+                                ? IconButton(
+                              color: Color.fromRGBO(230, 109, 193, 1),
+                              icon: Icon(Icons.cancel,size: 16),
+                              onPressed: () {
+                                _numberInputController.clear();
+                                _filter("");
+                              },
+                            )
+                                : SizedBox(),
                             border: OutlineInputBorder(
                                 borderSide: BorderSide(
                                     width: 1.0,
@@ -109,13 +121,13 @@ class _CountryInputStatefulState extends State<CountryInputStateful> {
                                     Radius.elliptical(24, 24)))),
                       ),
                       SizedBox(
-                        height: 10,
+                        height: 20,
                       ),
                       Row(
                         children: [
                           Padding(
                             padding: EdgeInsets.only(
-                                left: 0, top: 10, right: 0, bottom: 10),
+                                left: 0, top: 8, right: 0, bottom: 8),
                             child: Text(
                               "Countries",
                               textAlign: TextAlign.start,
@@ -134,7 +146,7 @@ class _CountryInputStatefulState extends State<CountryInputStateful> {
                               return Container(
                                 child: ListTile(
                                   contentPadding: EdgeInsets.only(
-                                      left: 0, top: 10, right: 10, bottom: 0),
+                                      left: 0, top: 8, right: 8, bottom: 0),
                                   title: Text(
                                     _list[index].name +
                                         " (" +
@@ -147,8 +159,8 @@ class _CountryInputStatefulState extends State<CountryInputStateful> {
                                   trailing: _list[index].code ==
                                           quiz.country.code
                                       ? Icon(
-                                          Icons.flag,
-                                          size: 15,
+                                          Icons.flag_circle,
+                                          size: 16,
                                           color:
                                               Color.fromRGBO(248, 100, 197, 1),
                                         )
@@ -167,7 +179,7 @@ class _CountryInputStatefulState extends State<CountryInputStateful> {
                   ),
                 ),
                 SizedBox(
-                  height: 30,
+                  height: 16,
                 ),
                 Footer(
                   buttonLabel: "Cancel",

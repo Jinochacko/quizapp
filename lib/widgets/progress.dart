@@ -18,14 +18,14 @@ class Progress extends StatelessWidget {
   Position getPosition(int step){
     if(step == 2){
       return Position(
-          10,
+          17,
           15
       );
     }
     if(step == 1){
       return Position(
           90,
-          205
+          195
       );
     }
     return Position(
@@ -39,11 +39,12 @@ class Progress extends StatelessWidget {
     return Consumer<QuizProvider>(builder: (context, quiz, child) => new Stack(
       clipBehavior: Clip.none,
       children: <Widget>[
+        Padding(padding: EdgeInsets.only(left: 10, top: 0,right: 0,bottom: 0),child:
         CircularStepProgressIndicator(
           totalSteps: 3,
           currentStep: quiz.percentageStep,
-          width: 200,
-          height: 200,
+          width: 190,
+          height: 190,
           selectedColor: Color.fromRGBO(230, 109, 193, 1),
           unselectedColor: Color.fromRGBO(51, 51, 51, 1),
           child: Center(
@@ -56,8 +57,9 @@ class Progress extends StatelessWidget {
             ),
           ),
         ),
+        ),
         Positioned(
-          top: 0,
+          top: -4,
           left: 8,
           child: CircularStepProgressIndicator(
             totalSteps: 100,
