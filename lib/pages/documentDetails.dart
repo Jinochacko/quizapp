@@ -14,7 +14,7 @@ class DocumentDetailsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Information"),
+        title: Text("Information", style: TextStyle(fontSize: 13, fontWeight: FontWeight.w900),),
         centerTitle: true,
         backgroundColor: Colors.black,
         leading: IconButton(
