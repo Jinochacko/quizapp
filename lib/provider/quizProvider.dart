@@ -10,11 +10,13 @@ class QuizProvider extends ChangeNotifier {
   int _percentageStep = 0;
   String _documentName = "";
   String _documentNumber = "";
+  final int _totalNumberOfQuestions = 3;
   List<CountryItem> get countries => _countries;
   String get documentNumber => _documentNumber;
   String get documentName => _documentName;
   CountryItem get country => _country;
   int get percentageStep => _percentageStep;
+  int get totalNumberOfQuestions => _totalNumberOfQuestions;
 
   Future<void> getCountries() async {
     _countries = await _service.fetchCountries();
